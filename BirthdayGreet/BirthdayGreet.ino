@@ -29,12 +29,12 @@ const int displayNum[4] = { 2, 3, 4, 7 };
 // Each color pin of the RGB LED from Red to Blue
 const int rgb[3] = { 9, 10, 11 };
 
-const int button{ 6 };    // Button Pin
-const int buzzer{ 5 };    // Buzzer Pin
+const int button{ 6 };
+const int buzzer{ 5 };
 
-const int serPin{ 8 };    // Serial Data Pin for the Shift Register
-const int sckPin{ 12 };   // Shift Register Pin for the Shift Register
-const int rckPin{ 13 };   // Store Register Pin for the Shift Register
+const int serPin{ 8 };
+const int sckPin{ 12 };
+const int rckPin{ 13 };
 
 // The LCD, assigned to address 0x27 with 16 columns and 2 rows
 LiquidCrystal_I2C lcd{ 0x27, 16, 2 };
@@ -66,11 +66,11 @@ enum ColorMode_T {
   kPink
 };
 
-void turnOffAllDisplay();                                                                                       // Turn off all displays
-void store(byte n);                                                                                             // Store the given byte
-void countdown(int& currentSeconds, bool& countdownBool, bool& beepBool);                                       // Counts down from the given seconds
-void playMelody(bool& melodyBool, const int melody[8], const int noteDurations[8], const int melodySize);       // Plays the melody once, then sets the melody bool to false
-void rainbowLED(int& redValue, int& greenValue, int& blueValue, ColorMode_T& colorMode);                        // Displays current color and updates color values
+void turnOffAllDisplay();
+void store(byte n);
+void countdown(int& currentSeconds, bool& countdownBool, bool& beepBool);
+void playMelody(bool& melodyBool, const int melody[8], const int noteDurations[8], const int melodySize);
+void rainbowLED(int& redValue, int& greenValue, int& blueValue, ColorMode_T& colorMode);
 
 void setup() {
   // Initialize the LCD
@@ -89,13 +89,13 @@ void setup() {
   }
 
   pinMode(button, INPUT_PULLUP);    // Set the button pin to Input w/ the Pull-Up Resistor
-  pinMode(buzzer, OUTPUT);          // Set the buzzer pin to Output
+  pinMode(buzzer, OUTPUT);
   
-  pinMode(serPin, OUTPUT);      // Set the SER pin to Output
-  pinMode(sckPin, OUTPUT);      // Set the SCK pin to Output
-  pinMode(rckPin, OUTPUT);      // Set the RCK pin to Output
+  pinMode(serPin, OUTPUT);
+  pinMode(sckPin, OUTPUT);
+  pinMode(rckPin, OUTPUT);
 
-  turnOffAllDisplay();    // Turn off all on displays
+  turnOffAllDisplay();
 }
 
 void loop() {
@@ -131,7 +131,7 @@ void loop() {
   prevButtonReading = reading;
 
   // Used in the countdown
-  static int currentSeconds{ 6 };         // Seconds of the countdown
+  static int currentSeconds{ 6 };
   static bool countdownBool{ true };      // Used to see if the system is still counting down
   static bool beepBool{ false };          // Used to see if the buzzer is currently beeping
 
@@ -196,10 +196,10 @@ void loop() {
   // Else, if we aren't on Greet Mode, reset all values
   else {
     // Reset all components
-    turnOffAllDisplay();        // Turn off all on displays
-    lcd.clear();                // Clear all characters on the LCD
-    lcd.setCursor(15, 0);       // Set the cursor on column 15, row 0
-    noTone(buzzer);             // Silence the buzzer
+    turnOffAllDisplay();
+    lcd.clear();
+    lcd.setCursor(15, 0);
+    noTone(buzzer);
 
     // Turn off the RGB LED
     analogWrite(rgb[0], 0);
@@ -262,7 +262,7 @@ void countdown(int& currentSeconds, bool& countdownBool, bool& beepBool) {
       
   // Countdown for the tens digit of the seconds
   turnOffAllDisplay();                                      // Turn off all displays
-  digitalWrite(displayNum[2], LOW);                         // Turn on The Tens Display
+  digitalWrite(displayNum[2], LOW);                         // Turn on the Tens Display
   store(digit[(currentSeconds / 10) % 10]);                 // Display the current tens digit of the seconds
   delay(5);                                                 // Delay for stability
 
