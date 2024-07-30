@@ -29,7 +29,7 @@ const int displayNum[4] = { 2, 3, 4, 7 };
 // Each color pin of the RGB LED from Red to Blue
 const int rgb[3] = { 9, 10, 11 };
 
-const int button{ 6 };    // Button Pinj
+const int button{ 6 };    // Button Pin
 const int buzzer{ 5 };    // Buzzer Pin
 
 const int serPin{ 8 };    // Serial Data Pin for the Shift Register
