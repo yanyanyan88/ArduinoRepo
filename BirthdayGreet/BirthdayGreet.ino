@@ -98,7 +98,6 @@ void setup() {
   turnOffAllDisplay();    // Turn off all on displays
 }
 
-// Main code
 void loop() {
   // Sets the system to Greet Mode or Not
   static bool greetMode{ false };
