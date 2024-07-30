@@ -66,14 +66,12 @@ enum ColorMode_T {
   kPink
 };
 
-// Functions used
 void turnOffAllDisplay();                                                                                       // Turn off all displays
 void store(byte n);                                                                                             // Store the given byte
 void countdown(int& currentSeconds, bool& countdownBool, bool& beepBool);                                       // Counts down from the given seconds
 void playMelody(bool& melodyBool, const int melody[8], const int noteDurations[8], const int melodySize);       // Plays the melody once, then sets the melody bool to false
 void rainbowLED(int& redValue, int& greenValue, int& blueValue, ColorMode_T& colorMode);                        // Displays current color and updates color values
 
-// Setup for the components
 void setup() {
   // Initialize the LCD
   lcd.init();
